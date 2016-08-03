@@ -4,6 +4,8 @@ The data set downloaded from <https://d396qusza40orc.cloudfront.net/getdata%2Fpr
 
 ##Input Data Set
 
+##1. Merges the training and the test sets to create one data set.
+
 The input data containts the following data files:
 
 - `X_train.txt` contains variable for training.
@@ -15,28 +17,25 @@ The input data containts the following data files:
 - `activity_labels.txt` contains data on different activities.
 - `features.txt` contains the name of the features in the data sets.
 
-##Transformations
+Columns were assigned with appropriate names and were merged into one data set.
 
-Following are the transformations that were performed on the input dataset:
+##2. Extracts only the measurements on the mean and standard deviation for each measurement.
 
-- `X_train.txt` is read into `featuresTrain`.
-- `y_train.txt` is read into `activityTrain`.
-- `subject_train.txt` is read into `subjectTrain`.
-- `X_test.txt` is read into `featuresTest`.
-- `y_test.txt` is read into `activityTest`.
-- `subject_test.txt` is read into `subjectTest`.
-- `features.txt` is read into `featureNames`.
-- `activity_labels.txt` is read into `activityLabels`.
-- The subjects in training and test set data are merged to form `subject`.
-- The activities in training and test set data are merged to form `activity`.
-- The features of test and training are merged to form `features`.
-- The name of the features are set in `features` from `features`.
-- `features`, `activity` and `subject` are merged to form `completeData`.
-- Indices of columns that contain std or mean, activity and subject are taken into `requiredColumns` .
-- `extractedData` is created with data from columns in `requiredColumns`.
-- `Activity` column in `extractedData` is updated with descriptive names of activities taken from `activityLabels`. `Activity` column is expressed as a factor variable.
-- Acronyms in variable names in `extractedData`, like 'Acc', 'Gyro', 'Mag', 't' and 'f' are replaced with descriptive labels such as 'Accelerometer', 'Gyroscpoe', 'Magnitude', 'Time' and 'Frequency'.
-- `tidyData` is created as a set with average for each activity and subject of `extractedData`. Entries in `tidydata` are ordered based on activity and subject.
-- Finally, the data in `tidydata` is written into `tidy.txt`.
+Measurements on the mean and standard deviation for each measurement was extracted and merged with selected names of features.
 
-##Output Data Set
+##3. Uses descriptive activity names to name the activities in the data set.
+
+The descriptive activity names were used to replac the activity values in the data set.
+
+##4. Appropriately labels the data set with descriptive variable names.
+
+Data set was labeled with descriptive variable names.
+- "^t" <- "time"
+- "^f" <- "frequency"
+- "Acc" <- "Accelerometer"
+- "Gyro" <- "Gyroscope"
+- "Mag" <- "Magnitude"
+- "BodyBody" <- "Body"
+
+##5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+Created a second independent tidy data set with the average of each variable for each activity and each subject.
